@@ -39,7 +39,7 @@ class App extends Component {
   hanldeAddPlayer = (name) => {
 
     this.setState(prevState => {
-      return {players: [...prevState.players, {name: name, score: 0, id: ++this.max_player_id+=1}]
+      return {players: [...prevState.players, {name: name, score: 0, id: ++this.max_player_id}]
       // players: [...prevState.players, {name, score: 0, id: 3}]
       // ...prevState.players 바구니를 펼치다라고 표현.
       // 쇼텐드프라퍼티
