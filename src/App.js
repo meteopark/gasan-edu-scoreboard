@@ -27,7 +27,7 @@ class App extends Component {
       });
 
       return { players: [...prevState.players] } // ES6 Spread연산자 : 새로운 바구니에 담아준다. 
-      
+
     });
   }
 
@@ -60,7 +60,9 @@ setState에 c만 상태를 갱신했다면 a, b, c, d, e 상태에서 c만 merge
   render() {
     return (
       <div className="scoreboard">
-        <Header title="My scoreboard" totalPlayers={this.state.players.length} />
+        <Header title="My scoreboard" 
+          players={this.state.players}
+          totalPlayers={this.state.players.length} />
         
         {/*Players List*/}
         { this.state.players.map(item => <Player name={item.name}
