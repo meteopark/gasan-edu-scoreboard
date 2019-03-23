@@ -2,7 +2,11 @@ import React from 'react';
 import Counter from './Counter';
 
 const Player = (props) => {
-    console.log(props);
+// console.log(props);
+
+
+  // function 일때는 this를 안써준다.
+    
     return (
       <div className="player">
         <span className="player-name">
@@ -11,7 +15,10 @@ const Player = (props) => {
         <span className="player-name">
           {props.name}
         </span>
-        <Counter />
+        <Counter 
+          id={props.id}
+          score={props.score} 
+          handleChangeScore={props.handleChangeScore}/>
       </div>
     );
   }
