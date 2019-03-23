@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './App.css'; 
 import Header from './components/Header';
 import Player from './components/Player';
+import AddPlayerForm from './components/AddPlayerForm';
 
- 
+
 class App extends Component {
+
   state = {
     players: [
       {name: 'LDK', id: 1, score: 0},
@@ -14,6 +16,9 @@ class App extends Component {
     ]
   };
 
+  max_player_id = this.state.players.length;
+
+  
 
   handleChangeScore = (id, data) => {
 
@@ -31,8 +36,24 @@ class App extends Component {
     });
   }
 
-  handleRemovePlayer = (id) => {
-    
+  hanldeAddPlayer = (name) => {
+
+    this.setState(prevState => {
+      return {players: [...prevState.players, {name: name, score: 0, id: this.max_player_id+=1}]
+      // players: [...prevState.players, {name, score: 0, id: 3}]
+      // ...prevState.players 바구니를 펼치다라고 표현.
+      // 쇼텐드프라퍼티
+    }
+    });
+
+    // 위와 아래는 같다. 
+
+    // this.setState(prevState => ({
+    //   players: [...prevState.players, {name: name, score: 0, id: 3}]
+    // }));
+  }
+
+
 /*
 [ updating based on prev state ]
 this.state.score + 1 로 상태를 업데이트하는 것은 비동기적으로 렌더링 된다. 
@@ -45,6 +66,8 @@ setState는 이전상태 값에 기반한 콜백 펑션을 제공해준다.
 setState에 c만 상태를 갱신했다면 a, b, c, d, e 상태에서 c만 merge가 일어나고 
 나머지 상태는 그대로 있게 된다는 얘기이다.
 */
+  handleRemovePlayer = (id) => {
+
     this.setState(prevState => ({
       players: prevState.players.filter(item => item.id !== id)
     }))
@@ -71,6 +94,7 @@ setState에 c만 상태를 갱신했다면 a, b, c, d, e 상태에서 c만 merge
                                                  handleChangeScore={this.handleChangeScore}
                                                  id={item.id} />)
         }
+        <AddPlayerForm hanldeAddPlayer={this.hanldeAddPlayer}/>
       </div>
     );
   }
