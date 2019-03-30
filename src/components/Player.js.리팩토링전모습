@@ -5,34 +5,26 @@ import Counter from './Counter';
 class Player extends React.Component { 
 
   render(){
-    
+
     console.log(this.props.name, ' rendered');
-    const {handleChangeScore, removePlayer, id, name, score} = this.props;
-    
-    // destruct assigment를 적용
-    
 
     return (
       <div className="player">
         <span className="player-name">
-          <button className="remove-player" onClick={() => removePlayer(id)}>x</button>
+          <button className="remove-player" onClick={() => this.props.removePlayer(this.props.id)}>x</button>
         </span>
         <span className="player-name">
-          {name}
+          {this.props.name}
         </span>
         <Counter 
-          id={id}
-          score={score} 
-          handleChangeScore={handleChangeScore}/>
+          id={this.props.id}
+          score={this.props.score} 
+          handleChangeScore={this.props.handleChangeScore}/>
       </div>
     );
   }
 
   
-
-  /*
-    전체적인 호출이 아닌 선택된 것에 대한 것만 렌더링 되기 위해 PureComponent 를 Override 해준다. 
-  */
   componentWillReceiveProps(nextProps, nextContext) {
     console.log('componentWillReceiveProps', nextProps);
   }

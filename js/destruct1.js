@@ -1,4 +1,4 @@
-// destructing assignment
+// desturct assignment
 var a, b, rest;
 [a, b] = [10, 20]; //
 
