@@ -1,26 +1,43 @@
 import React from 'react';
 import Counter from './Counter';
 
-const Player = (props) => {
-// console.log(props);
 
+class Player extends React.Component { 
 
-  // function 일때는 this를 안써준다.
-    
+  render(){
+
+    console.log(this.props.name, ' rendered');
+
     return (
       <div className="player">
         <span className="player-name">
-          <button className="remove-player" onClick={() => props.removePlayer(props.id)}>x</button>
+          <button className="remove-player" onClick={() => this.props.removePlayer(this.props.id)}>x</button>
         </span>
         <span className="player-name">
-          {props.name}
+          {this.props.name}
         </span>
         <Counter 
-          id={props.id}
-          score={props.score} 
-          handleChangeScore={props.handleChangeScore}/>
+          id={this.props.id}
+          score={this.props.score} 
+          handleChangeScore={this.props.handleChangeScore}/>
       </div>
     );
   }
 
-  export default Player
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log('componentWillReceiveProps', nextProps);
+  }
+ 
+  // 프레디케이트 타입이라 return 해줘야 한다. 
+  // 렌더링을 해야될까 말아야될까 true :렌더링, false: 비렌더링
+  shouldComponentUpdate(nextProps, nextState, nextContext) { 
+    console.log('shouldComponentUpdate', nextProps);
+    
+    // 현재 score와 nextProps의 score를 비교    
+    return nextProps.score !== this.props.score ? true : false; 
+
+  }
+}
+
+export default Player
