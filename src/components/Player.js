@@ -29,7 +29,7 @@ class Player extends React.Component {
     console.log('componentWillReceiveProps', nextProps);
   }
  
-  // 프레디케이트 타입이라 return 해줘야 한다. 
+  // predicate 타입이라 return 해줘야 한다. 
   // 렌더링을 해야될까 말아야될까 true :렌더링, false: 비렌더링
   shouldComponentUpdate(nextProps, nextState, nextContext) { 
     console.log('shouldComponentUpdate', nextProps);
