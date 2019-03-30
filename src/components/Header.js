@@ -1,5 +1,6 @@
 import React from 'react';
 import Statistics from './Statistics';
+import Stopwatch from './Stopwatch';
 
 const Header = (props) => {
 
@@ -8,6 +9,7 @@ const Header = (props) => {
         <Statistics players={props.players}/>
         <h1>{ props.title }</h1>
         <span className="stats">Players: { props.totalPlayers }</span>
+        <Stopwatch/>
       </header>
       
     )
