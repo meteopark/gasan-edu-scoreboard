@@ -1,9 +1,12 @@
 import {playerReducer} from "./player";
-import {combineReducers} from "redux";
+import {combineReducers} from "redux"; // 리덕스를 합쳐주는 function
 
 
+/*
+리덕스가 2개 이상일 경우에는 리덕스를 합쳐줘야 한다.
+index.js를 생성한다.
+ */
 export const allReducer = combineReducers({
-    
-    // players: playerReducer()
-    playerReducer, // 쇼텐더 ??
+  playerReducer,
 })
+// export default allReducer; // 생성한 것을 내보내 준다.

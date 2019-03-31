@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Scoreboard extends React.Component {
+export class Heroes extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -8,7 +8,7 @@ export class Scoreboard extends React.Component {
   render() {
     return (
       <div>
-        Scoreboard works.
+        Heroes works.
       </div>
     );
   }

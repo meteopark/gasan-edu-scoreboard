@@ -1,10 +1,10 @@
 import React from 'react';
-import connect from 'react';
-import {addPlayer} from '../redux/actions'; // import 시킬때는  { }
+import {connect} from "react-redux";
+import {addPlayer} from "../redux/actions";
 
 class AddPlayerForm extends React.Component {
 
-    textInput = React.createRef;
+    textInput = React.createRef();
 
     constructor(props) {
         super(props);
@@ -13,25 +13,25 @@ class AddPlayerForm extends React.Component {
         // }
     }
 
+    // handleValueChange = (e) => {
+    //   this.setState({playerName: e.target.value})
+    // }
 
     handleSubmit = (e) => {
-
+        // submit의 기본이벤트 막기
         e.preventDefault();
-        // this.props.hanldeAddPlayer(this.state.playerName) // class일때는 this 붙이기
-        this.props.hanldeAddPlayer(this.textInput.current.value) // class일때는 this 붙이기
+        this.props.addPlayer(this.textInput.current.value); // class 일때는 this 붙이기
         e.currentTarget.reset();
     }
 
-    render(){
-
+    render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" ref={this.textInput}
-                       placeholder="enter a player's name" required></input>
-                <input type="submit" value="Add Player"></input>
-            </form>
+          <form onSubmit={this.handleSubmit}>
+              <input type="text" ref={this.textInput}
+                     placeholder="enter a player's name" required></input>
+              <input type="submit" value="Add Player"></input>
+          </form>
         );
-
     }
 }
 
