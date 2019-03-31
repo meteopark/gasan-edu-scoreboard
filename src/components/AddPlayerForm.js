@@ -1,8 +1,18 @@
 import React from 'react';
+import connect from 'react';
+import {addPlayer} from '../redux/actions'; // import 시킬때는  { }
 
 class AddPlayerForm extends React.Component {
 
     textInput = React.createRef;
+
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //   playerName: ''
+        // }
+    }
+
 
     handleSubmit = (e) => {
 
@@ -14,17 +24,15 @@ class AddPlayerForm extends React.Component {
 
     render(){
 
-        return(
-        <form onSubmit={this.handleSubmit}>
-        <input type="text"
-        ref={this.textInput}
-        onChange={this.handleValue}
-        required // html validation!!! 브라우저 마다 alert 메시지가 다 틀리다.
-        placeholder="enter a playre's name" />
-        <input type="submit" value="ADD PLAYER"/>
-        </form>
-        )
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" ref={this.textInput}
+                       placeholder="enter a player's name" required></input>
+                <input type="submit" value="Add Player"></input>
+            </form>
+        );
+
     }
 }
 
-export default AddPlayerForm
+export default connect(null, {addPlayer})(AddPlayerForm);
