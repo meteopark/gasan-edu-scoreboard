@@ -9,4 +9,3 @@ index.js를 생성한다.
 export const allReducer = combineReducers({
   playerReducer,
 })
-// export default allReducer; // 생성한 것을 내보내 준다.
