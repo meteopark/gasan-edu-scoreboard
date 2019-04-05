@@ -10,7 +10,7 @@ class AddPlayerForm extends React.Component {
         super(props);
         // this.state = {
         //   playerName: ''
-        // }
+        // }{{
     }
 
     // handleValueChange = (e) => {
