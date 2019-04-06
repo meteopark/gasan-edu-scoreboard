@@ -1,8 +1,11 @@
 import React from 'react';
-import Header from "../components/Header";
-import {Player} from "../components/Player";
-import AddPlayerForm from "../components/AddPlayerForm";
+import Header from "../../components/Header";
+import {Player} from "../../components/Player";
+import AddPlayerForm from "../../components/AddPlayerForm";
 import {connect} from "react-redux";
+import './Scoreboard.css'; // import를 하게 되면 해당 css는 scoreboard에만 있는게 아니라 global로 적용이 된다. css를 모아서 컴파일해서 index.html 로 넣어준다.
+
+
 
 class Scoreboard extends React.Component {
   constructor(props) {
