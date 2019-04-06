@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styles from '../pages/scoreboard/Scoreboard.module.css';
+
 
 
 export class Counter extends React.Component {
@@ -19,11 +22,11 @@ export class Counter extends React.Component {
     const {handleChangeScore, id, score} = this.props;
 
     return (
-      <div className="counter">
-        <button className="counter-action decrement"
+      <div className={styles.counter}>
+        <button className={classNames(styles["counter-action"], styles.decrement)}
                 onClick={() => handleChangeScore(id, -1)}> - </button>
-        <span className="counter-score">{score}</span>
-        <button className="counter-action increment"
+        <span className={styles["counter-score"]}>{score}</span>
+        <button className={classNames(styles["counter-action"], styles.increment)}
                 onClick={() => handleChangeScore(id, 1)}> + </button>
       </div>
     );
