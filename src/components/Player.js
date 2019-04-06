@@ -1,6 +1,8 @@
 import React from 'react';
 import Counter from "./Counter";
 import styles from '../pages/scoreboard/Scoreboard.module.css';
+import {connect} from "react-redux";
+import {removePlayer} from "../redux/actions";
 
 export class Player extends React.Component {
 
@@ -9,12 +11,13 @@ export class Player extends React.Component {
     console.log(this.props.name, ' rendered');
 
     // destruct assignment
-    const {handleRemovePlayer, handleChangeScore, id, name, score} = this.props;
+    const {removePlayer, handleChangeScore, id, name, score} = this.props;
+
 
     return (
       <div className={styles.player}>
         <span className={styles["player-name"]}>
-      <button className={styles["remove-player"]} onClick={() => handleRemovePlayer(id)}>x</button>
+      <button className={styles["remove-player"]} onClick={() => removePlayer(id)}>x</button>
     </span>
         <span className={styles["player-name"]}>
       {name}
@@ -41,3 +44,5 @@ export class Player extends React.Component {
     return this.props.score !== nextProps.score ? true : false;
   }
 }
+
+export default connect(null, {removePlayer})(Player)

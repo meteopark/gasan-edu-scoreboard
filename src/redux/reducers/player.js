@@ -56,6 +56,14 @@ export const playerReducer = (state = playerInitialState, action) => {
 
             }
 
+        case types.REMOVE_PLAYER:
+
+            return {
+                ...state,
+                players: state.players.filter(player => player.id !== action.id)
+
+            }
+
         default:
 
             return state; // 고정

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import * as actions from "../redux/actions";
-
+import {changeScore} from "../redux/actions";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from '../pages/scoreboard/Scoreboard.module.css';
@@ -38,8 +37,7 @@ export class Counter extends React.Component {
 
 // (액션을 디스패치하는 펑션)을 (Props)로 subscribe해서 가져온다.
 const mapDispatchToProps = (dispatch) => ({
-
-    changeScore: (id, delta) => dispatch(actions.changeScore(id, delta))
+    changeScore: (id, delta) => dispatch(changeScore(id, delta))
     // changeScore(id, delta) = 액션
 })
 
