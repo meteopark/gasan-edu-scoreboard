@@ -16,10 +16,11 @@ export class Heroes extends React.Component {
         return (
             <ul className={styles["img-box"]}>
                 {this.state.heroes.map(hero => (
-
                     <li key={hero.hero_id}>
 
-                        <img src={hero.photo} alt={hero.name} className={styles.img}/>
+                        <img
+                            src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/default.svg'}
+                            alt={hero.name} className={styles.img}/>
                             <span>{hero.name}</span>
                     </li>
                 ))}
