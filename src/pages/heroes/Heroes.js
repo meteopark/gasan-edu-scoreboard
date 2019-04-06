@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios/index';
 import Pagination from 'rc-pagination';
 import 'rc-pagination/dist/rc-pagination.css';
+import {Hero} from "../hero/Hero";
+import {Route, Switch} from "react-router-dom";
+
 
 export class Heroes extends React.Component {
 
@@ -13,6 +16,13 @@ export class Heroes extends React.Component {
 
         this.getHeroes();
     }
+
+    handleClick = (event, hero_id) => {
+
+        event.preventDefault();
+        this.props.history.push(`/heroes/hero/${hero_id}`);
+    }
+
 
     constructor(props) {
         super(props);
@@ -30,9 +40,15 @@ export class Heroes extends React.Component {
 
         return (
             <div>
-                <div className="card-columns">
+                {/*네스티드 된 상태 화면*/}
+                <Switch>
+                    <Route path="/heroes/hero/:hero_id" component={Hero}></Route>
+                </Switch>
+
+
+'                <div className="card-columns">
                     {this.state.heroes.map(hero => (
-                        <div className="card" key={hero.hero_id}>
+                        <div className="card" key={hero.hero_id} onClick={(e) => this.handleClick(e, hero.hero_id)}>
                             <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/default.svg'}
                                  className="card-img-top"
                                  style={{width: '100%'}} alt={hero.name}></img>
