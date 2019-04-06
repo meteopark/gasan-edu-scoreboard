@@ -45,8 +45,7 @@ export class Heroes extends React.Component {
                     <Route path="/heroes/hero/:hero_id" component={Hero}></Route>
                 </Switch>
 
-
-'                <div className="card-columns">
+                <div className="card-columns">
                     {this.state.heroes.map(hero => (
                         <div className="card" key={hero.hero_id} onClick={(e) => this.handleClick(e, hero.hero_id)}>
                             <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/default.svg'}
