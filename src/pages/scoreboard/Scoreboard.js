@@ -3,7 +3,8 @@ import Header from "../../components/Header";
 import {Player} from "../../components/Player";
 import AddPlayerForm from "../../components/AddPlayerForm";
 import {connect} from "react-redux";
-import './Scoreboard.css'; // import를 하게 되면 해당 css는 scoreboard에만 있는게 아니라 global로 적용이 된다. css를 모아서 컴파일해서 index.html 로 넣어준다.
+// import './Scoreboard.module.css'; // import를 하게 되면 해당 css는 scoreboard에만 있는게 아니라 global로 적용이 된다. css를 모아서 컴파일해서 index.html 로 넣어준다.
+import styles from './Scoreboard.module.css';
 
 
 
@@ -42,7 +43,7 @@ class Scoreboard extends React.Component {
 
   render() {
     return (
-        <div className="scoreboard">
+        <div className={styles.scoreboard}>
           <Header totalPlayers={10 + 1} players={this.props.players}/>
           {
             this.props.players.map(player => (
