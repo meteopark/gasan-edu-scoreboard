@@ -4,12 +4,13 @@ import {Stopwatch} from "./Stopwatch";
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {updateTitle} from "../redux/actions";
+import styles from '../pages/scoreboard/Scoreboard.module.css';
 
 const Header = ({title, players, updateTitle}) => {
 
   // const {title, players} = props; // destruct assignment
   return (
-    <header>
+    <header className={styles.header}>
       <Statistics players={players}/>
       <h1 onClick={() => updateTitle('Store Title')}>{title}</h1>
       <Stopwatch/>
