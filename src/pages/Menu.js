@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
+
 import {
   Collapse, DropdownItem, DropdownMenu,
   DropdownToggle,
@@ -7,7 +9,6 @@ import {
   NavbarBrand,
   NavbarToggler,
   NavItem,
-  NavLink,
   UncontrolledDropdown
 } from "reactstrap";
 
@@ -28,16 +29,17 @@ export class Menu extends React.Component {
 
   render() {
     return (
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar color="dark" dark expand="md">
+        <NavLink to="/" className="navbar-brand">reactstrap</NavLink>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink to="/heroes/" className="nav-link">heroes</NavLink>
+            {/* 링크 이동시 깜빡임을 막기위해 react-dom 의 NavLink를 사용해 준다.   */}
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink to="/scoreboard" className="nav-link">Scoreboard</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
