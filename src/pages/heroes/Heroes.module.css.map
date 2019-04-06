@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,UAAU;EACR,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;;AAKpB,IAAK;EACH,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK",
+"sources": ["Heroes.module.scss"],
+"names": [],
+"file": "Heroes.module.css"
+}

@@ -242,3 +242,9 @@ input[type=submit]:hover {
     font-size: 2em;
     line-height: 2em;
 }
+
+
+.img {
+    width: 100px;
+    height: 100px;
+}
