@@ -1,8 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {Home} from "./Home";
-import {Heroes} from "./heroes/Heroes";
-import {Hero} from "./hero/Hero";
 import Scoreboard from "./scoreboard/Scoreboard";
 import {Menu} from "./Menu";
 import {Index} from "./heroes/Index";
