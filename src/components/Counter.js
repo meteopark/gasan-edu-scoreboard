@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from "react-redux";
+import * as actions from "../redux/actions";
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from '../pages/scoreboard/Scoreboard.module.css';
@@ -19,16 +22,26 @@ export class Counter extends React.Component {
 
   render() {
     // desctuct assignment
-    const {handleChangeScore, id, score} = this.props;
+    const {changeScore, id, score} = this.props;
 
     return (
       <div className={styles.counter}>
         <button className={classNames(styles["counter-action"], styles.decrement)}
-                onClick={() => handleChangeScore(id, -1)}> - </button>
+                onClick={() => changeScore(id, -1)}> - </button>
         <span className={styles["counter-score"]}>{score}</span>
         <button className={classNames(styles["counter-action"], styles.increment)}
-                onClick={() => handleChangeScore(id, 1)}> + </button>
+                onClick={() => changeScore(id, 1)}> + </button>
       </div>
     );
   }
 }
+
+// (액션을 디스패치하는 펑션)을 (Props)로 subscribe해서 가져온다.
+const mapDispatchToProps = (dispatch) => ({
+
+    changeScore: (id, delta) => dispatch(actions.changeScore(id, delta))
+    // changeScore(id, delta) = 액션
+})
+
+// export default connect(null, mapDispatchToProps)(Counter)
+export default connect(null, {changeScore})(Counter) // 위에 있는 changeScore: changeScore 이기때문에 숏텐더 가능

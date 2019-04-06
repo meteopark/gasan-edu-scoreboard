@@ -33,12 +33,27 @@ export const playerReducer = (state = playerInitialState, action) => {
             }
 
         case types.ADD_PLAYER:
+
             return {
                 ...state,
                 players: [
                     ...state.players, // 기존 값들을 복사 해주고
                     {name: action.name, score: 0, id: ++maxId} // 새로운 값들을 세팅해준다.
                 ]
+            }
+
+        case types.CHANGE_SCORE:
+
+            state.players.forEach(player => {
+                if(player.id === action.id){
+                    player.score += action.delta;
+                }
+            })
+
+            return {
+                ...state,
+                players: [...state.players]
+
             }
 
         default:

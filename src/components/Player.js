@@ -1,5 +1,5 @@
 import React from 'react';
-import {Counter} from "./Counter";
+import Counter from "./Counter";
 import styles from '../pages/scoreboard/Scoreboard.module.css';
 
 export class Player extends React.Component {
