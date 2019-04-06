@@ -3,6 +3,7 @@ import {Heroes} from "./Heroes";
 import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import {Register} from "./Register";
 import {Nav, NavItem} from "reactstrap";
+import './Index.scss';
 
 export class Index extends React.Component {
 
