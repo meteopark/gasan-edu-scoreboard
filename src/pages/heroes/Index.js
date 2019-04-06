@@ -1,7 +1,8 @@
 import React from 'react';
 import {Heroes} from "./Heroes";
-import {Route, Switch} from "react-router-dom";
+import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import {Register} from "./Register";
+import {Nav, NavItem} from "reactstrap";
 
 export class Index extends React.Component {
 
@@ -16,10 +17,18 @@ export class Index extends React.Component {
 
         return (
             <div>
-                <p>Sub Menu</p>
+                <Nav>
+                    <NavItem>
+                        <NavLink to="/heroes/hero" className="nav-link">heroes</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to="/heroes/register" className="nav-link">Register</NavLink>
+                    </NavItem>
+                </Nav>
                 <Switch>
-                    <Route exact path="/heroes/hero" component={Heroes}></Route>
+                    <Route path="/heroes/hero" component={Heroes}></Route>
                     <Route path="/heroes/register" component={Register}></Route>
+                    <Route path="/heroes" render={() => <Redirect to="/heroes/hero" />}></Route>
                 </Switch>
             </div>
 

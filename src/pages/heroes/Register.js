@@ -13,7 +13,7 @@ export class Register extends React.Component {
 
         return (
             <div>
-                ihhihi
+                register
             </div>
 
 
